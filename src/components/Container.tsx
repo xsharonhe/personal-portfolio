@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-import { widths } from '../styles/variables';
-import { getEmSize } from '../styles/mixins';
+import { widths } from '../utils/variables';
+import { getEmSize } from '../utils/mixins';
 
 const StyledContainer = styled.div`
   position: relative;

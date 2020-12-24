@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'gatsby-starter-typescript-plus',
@@ -7,9 +9,9 @@ module.exports = {
     keywords: 'gatsbyjs, gatsby, javascript, sample, something',
     siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
     author: {
-      name: 'Resi Respati',
+      name: 'Sharon He',
       url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
+      email: 'sharon.he1@uwaterloo.ca'
     }
   },
   plugins: [
@@ -18,6 +20,13 @@ module.exports = {
       options: {
         name: 'content',
         path: `${__dirname}/src/content`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`
       }
     },
     {
@@ -38,9 +47,9 @@ module.exports = {
             options: {
               maxWidth: 1140,
               quality: 90,
-              linkImagesToOriginal: false
-            }
-          }
+              linkImagesToOriginal: false,
+            },
+          },
         ]
       }
     },
@@ -49,16 +58,28 @@ module.exports = {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com'
-      }
+      },
     },
     'gatsby-plugin-emotion',
-    'gatsby-plugin-typescript',
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        jsxPragma: `jsx`,
+        allExtensions: true,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-      resolve: `gatsby-styled-components-dark-mode`
-    }
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
   ]
 }
