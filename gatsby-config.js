@@ -81,5 +81,12 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-styled-components-dark-mode`,
+      options: {
+        light: require(`${__dirname}/src/theme/theme.js`).lightTheme,
+        dark: require(`${__dirname}/src/theme/theme.js`).darkTheme,
+      },
+    },
   ]
 }
