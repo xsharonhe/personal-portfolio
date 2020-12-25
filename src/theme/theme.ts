@@ -51,7 +51,7 @@ export const baseTheme: IBaseTemplate = {
         small: '325',
         mobile: '414',
         tablet: '834',
-        laptop: '1080',
+        laptop: '1480',
         desktop: '2560'
     }
 };

@@ -1,12 +1,13 @@
 import React from 'react';
 
 import IndexLayout from '../layouts';
-import { About } from '../sections/About';
+import { Hero, About } from '../sections';
 
 const IndexPage = () => {
     return (
       <IndexLayout>
-        <About style={{ marginTop: '30px' }}/>
+        <Hero style={{ marginTop: '40px' }}/>
+        <About style={{ marginTop: '40px' }}/>
       </IndexLayout>
   );
 }

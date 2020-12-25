@@ -20,11 +20,23 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
             overflow-y: scroll;
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
-            padding: 40px 50px;
+            @media(max-width: ${theme.media.desktop}px) {
+                padding: 80px 360px;
+            }
+            @media(max-width: ${theme.media.laptop}px) {
+                padding: 80px 200px;
+            }
+            @media (max-width: ${theme.media.tablet}px) {
+                padding: 80px 90px;
+            }
+            @media (max-width: ${theme.media.mobile}px) {
+                padding: 40px 20px;
+            }
         }
         a {
             text-decoration: none;
             color: ${theme.colors.text};
         }
+
     `};
 `;
