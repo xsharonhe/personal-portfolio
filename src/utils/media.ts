@@ -5,7 +5,7 @@ export const media = (
     breakpoint: string,
     styling: string,
 ): InterpolationFunction<{theme: IMainTemplate}> => ({ theme }): string => `
-    @media only screen and (max-width: ${theme.media[breakpoint] || breakpoint}px }) {
+    @media (max-width: ${theme.media[breakpoint] || breakpoint}px }) {
         ${styling}
     };
 `;

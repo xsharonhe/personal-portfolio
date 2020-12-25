@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
             width: 100%;
-            padding: 30px 50px;
+            padding: 40px 50px;
         }
         a {
             text-decoration: none;

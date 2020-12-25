@@ -1,11 +1,12 @@
 import React from 'react';
 
 import IndexLayout from '../layouts';
+import { Hero } from '../sections/Hero';
 import { About } from '../sections/About';
 
 const IndexPage = () => (
   <IndexLayout>
-    <h1>Hi people</h1>
+    <Hero />
     <About />
   </IndexLayout>
 )
