@@ -5,10 +5,9 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import { GlobalStyle } from '../theme/GlobalStyle';
 import { lightTheme, darkTheme } from '../theme/theme';
+import { strings } from '../utils/strings';
 
-import Header from '../components/Header';
-import LayoutRoot from '../components/LayoutRoot';
-import LayoutMain from '../components/LayoutMain';
+import { ToggleButton } from '../components/ToggleButton/ToggleButton';
 
 interface StaticQueryProps {
   site: {
@@ -21,7 +20,8 @@ interface StaticQueryProps {
 };
 
 const IndexLayout: React.FC = ({
-   children,
+    children,
+    ...props
 }) => {
   const [theme, setTheme] = useState('light');
   const themeToggler = () => {
@@ -42,9 +42,8 @@ const IndexLayout: React.FC = ({
       `}
       render={(data: StaticQueryProps) => (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-          <>
+          <div {...props}>
             <GlobalStyle />
-            <LayoutRoot>
               <Helmet
                 title={data.site.siteMetadata.title}
                 meta={[
@@ -52,13 +51,13 @@ const IndexLayout: React.FC = ({
                   { name: 'keywords', content: data.site.siteMetadata.keywords }
                 ]}
               />
-              <Header title={data.site.siteMetadata.title} />
-              <button onClick={themeToggler}>
-                Switch Theme
-              </button>
-              <LayoutMain>{children}</LayoutMain>
-            </LayoutRoot>
-          </>
+              <ToggleButton 
+                leftText={strings.toggleButton.leftText}
+                rightText={strings.toggleButton.rightText}
+                onClick={themeToggler}
+              />
+                {children}
+          </div>
         </ThemeProvider>
       )}
     />
