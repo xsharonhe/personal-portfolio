@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -23,7 +23,15 @@ const IndexLayout: React.FC = ({
     children,
     ...props
 }) => {
-  const [theme, setTheme] = useState('light');
+  const getTheme = (): string => {
+    const currentTime = new Date().getHours();
+    if(7 <= currentTime && currentTime < 18) {
+      return 'light';
+    } 
+    return 'dark';
+  };
+
+  const [theme, setTheme] = useState(getTheme());
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
   };
@@ -42,7 +50,6 @@ const IndexLayout: React.FC = ({
       `}
       render={(data: StaticQueryProps) => (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-          <div {...props}>
             <GlobalStyle />
               <Helmet
                 title={data.site.siteMetadata.title}
@@ -51,13 +58,13 @@ const IndexLayout: React.FC = ({
                   { name: 'keywords', content: data.site.siteMetadata.keywords }
                 ]}
               />
-              <ToggleButton 
+              <SToggleButton 
                 leftText={strings.toggleButton.leftText}
                 rightText={strings.toggleButton.rightText}
-                onClick={themeToggler}
+                onButtonClick={themeToggler}
+                {...props}
               />
                 {children}
-          </div>
         </ThemeProvider>
       )}
     />
@@ -65,3 +72,9 @@ const IndexLayout: React.FC = ({
 };
 
 export default IndexLayout;
+
+const SToggleButton = styled(ToggleButton)`
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 120px;
+`;

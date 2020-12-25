@@ -4,11 +4,13 @@ import styled from 'styled-components';
 export interface IToggleButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     leftText?: string;
     rightText?: string;
+    onButtonClick: () => void;
 };
 
 export const ToggleButton: React.FC<IToggleButtonProps> = ({
     leftText,
     rightText,
+    onButtonClick,
     ...props
 }): React.ReactElement => (
     <Wrapper {...props}>
@@ -17,6 +19,7 @@ export const ToggleButton: React.FC<IToggleButtonProps> = ({
         </SLabel>
             <SInput 
                 type='checkbox'
+                onClick={onButtonClick}
             />
             <Slider />
         <SLabel>

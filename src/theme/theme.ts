@@ -14,11 +14,7 @@ interface IBaseTemplate extends DefaultTheme {
     },
     radius: string | number;
     media: {
-        small: string | number;
-        mobile: string | number;
-        tablet: string | number;
-        laptop: string | number;
-        desktop: string | number;
+        [key: string]: number | string;
     }
 };
 
@@ -44,11 +40,11 @@ export const baseTheme: IBaseTemplate = {
     },
     radius: '8px',
     media: {
-        small: '325px',
-        mobile: '414px',
-        tablet: '834px',
-        laptop: '1080px',
-        desktop: '2560px'
+        small: '325',
+        mobile: '414',
+        tablet: '834',
+        laptop: '1080',
+        desktop: '2560'
     }
 };
 

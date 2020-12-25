@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
         }
         html, body {
             height: 100%;
+            box-sizing: inherit;
         }
         body {
             background-color: ${theme.colors.background};
@@ -17,6 +18,14 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
             font-family: ${theme.font.body};
             overflow-x: hidden;
             overflow-y: scroll;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            width: 100%;
+            padding: 30px 50px;
+        }
+        a {
+            text-decoration: none;
+            color: ${theme.colors.text};
         }
     `};
 `;
