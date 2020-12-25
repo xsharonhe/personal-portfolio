@@ -31,7 +31,7 @@ const IndexLayout: React.FC = ({
     return 'dark';
   };
 
-  const [theme, setTheme] = useState(getTheme());
+  const [theme, setTheme] = useState(getTheme);
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
   };
@@ -76,5 +76,4 @@ export default IndexLayout;
 const SToggleButton = styled(ToggleButton)`
     display: flex;
     justify-content: flex-end;
-    padding-right: 120px;
 `;

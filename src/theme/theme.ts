@@ -11,8 +11,12 @@ interface IBaseTemplate extends DefaultTheme {
         h1: string | number;
         h2: string | number;
         h3: string | number;
+        large: string | number;
     },
-    radius: string | number;
+    radius: {
+        default: string;
+        border: string;
+    };
     media: {
         [key: string]: number | string;
     }
@@ -37,8 +41,12 @@ export const baseTheme: IBaseTemplate = {
         h1: '2rem',
         h2: '1.75rem',
         h3: '1.55rem',
+        large: '2.5rem',
     },
-    radius: '8px',
+    radius: {
+        default: '8px',
+        border: '20px',
+    },
     media: {
         small: '325',
         mobile: '414',
@@ -61,7 +69,7 @@ export const darkTheme: IMainTemplate = {
     ...baseTheme,
     colors: {
         primary: '#79a3b1',
-        background: '#393e46',
+        background: '#41444b',
         text: '#f4eeed',
     },
 };

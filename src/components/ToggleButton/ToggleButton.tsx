@@ -34,6 +34,5 @@ const SLabel = styled.label`
 `;
 const SInput = styled.input`
 `;
-const Slider = styled.span`
-    
+const Slider = styled.span` 
 `;

@@ -20,7 +20,6 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
             overflow-y: scroll;
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
-            width: 100%;
             padding: 40px 50px;
         }
         a {

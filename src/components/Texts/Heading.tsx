@@ -12,9 +12,11 @@ export const Heading: React.FC<IHeadingProps> = ({
 }): React.ReactElement => {
     return (
         <Wrapper {...props}>
-            <Text isNumberText> 
-                {numberText}
-            </Text>
+            {!!numberText && (
+                <Text isNumberText> 
+                    {numberText}
+                </Text>
+            )}
             <Text>
                 {children}
             </Text>
@@ -33,8 +35,9 @@ interface ITextProps {
 const Text = styled.h1<ITextProps>`
     ${({ theme, isNumberText }) => `
         color: ${isNumberText ? theme.colors.primary : theme.colors.text};
-        font-size: ${theme.size.h1};
-        font-family: ${theme.font.header};
+        font-size: ${theme.size.h2};
+        font-weight: 700;
+        font-family: ${theme.font.body};
         margin-right: ${isNumberText ? '10px' : ''};
     `};
 `;
