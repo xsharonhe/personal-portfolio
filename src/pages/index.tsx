@@ -6,7 +6,7 @@ import { Hero, About, Experiences, Projects, Contact } from '../sections';
 const IndexPage = () => {
     return (
       <IndexLayout>
-        <Hero style={{ marginTop: '42px' }}/>
+        <Hero style={{ marginTop: '40px' }}/>
         <About style={{ marginTop: '80px' }}/>
         <Experiences style={{ marginTop: '80px' }}/>
         <Projects style={{ marginTop: '80px' }}/>

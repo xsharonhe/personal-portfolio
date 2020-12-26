@@ -25,7 +25,7 @@ export const Hero: React.FC<IHeroProps> = ({
     return (
         <Wrapper id='hero' {...props}>
             <>
-                <div style={{ paddingTop: '20px' }}>
+                <div style={{ paddingTop: '10px' }}>
                     <p> 
                         {strings.hero.introduction}
                     </p>
@@ -82,6 +82,7 @@ const Wrapper = styled.div`
     ${({ theme }) => `
         @media (max-width: ${theme.media.tablet}px) {
             flex-direction: column-reverse;
+            text-align: center;
         }
     `};
 `;

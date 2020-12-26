@@ -50,7 +50,7 @@ export const baseTheme: IBaseTemplate = {
         h2: '1.75rem',
         h3: '1.3rem',
         defaultLarger: '1.2rem',
-        large: '2.5rem',
+        large: '3rem',
     },
     radius: {
         default: '8px',
@@ -59,12 +59,12 @@ export const baseTheme: IBaseTemplate = {
     media: {
         small: '325',
         mobile: '414',
-        tablet: '834',
+        tablet: '850',
         laptop: '1480',
         desktop: '2560'
     },
     transitions: {
-        cubicBezier: 'all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)'
+        cubicBezier: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)'
     }
 };
 

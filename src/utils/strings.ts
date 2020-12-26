@@ -5,7 +5,7 @@ export const strings = {
     },
     technologies: [
         'TypeScript',
-        'MERN Stack',
+        'MongoDB, Express, Node.js & React',
         'Django',
         'Tensorflow',
     ], 
@@ -32,6 +32,7 @@ export const strings = {
         },
         linkedin: 'https://www.linkedin.com/in/sharon-he-4214541ab/',
         github: 'https://github.com/xsharonhe',
+        medium: 'https://medium.com/@xsharonhe'
     },
     email: 'sharon.he1@uwaterloo.ca'
 };

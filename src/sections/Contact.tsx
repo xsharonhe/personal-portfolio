@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Linkedin } from '@styled-icons/bootstrap/Linkedin';
 import { Github } from '@styled-icons/bootstrap/Github';
+import { Medium } from '@styled-icons/fa-brands/Medium';
 import { navigate } from 'gatsby';
 
 import { Heading, Bold } from '../components/Texts';
@@ -19,6 +20,10 @@ const IconsList = [
     {
         icon: Github,
         link: strings.contact.github
+    },
+    {
+        icon: Medium,
+        link: strings.contact.medium
     }
 ];
 
@@ -37,9 +42,9 @@ export const Contact: React.FC<IContactProps> = ({
                 <a href={`mailto:${strings.email}`}> <Bold isLink={true}> 
                 sharon.he1@uwaterloo.ca</Bold></a>.
             </p>
-            <p style={{ textAlign: 'center' }}> 
-                <Bold> Oh! </Bold> And I'm also on:
-            </p>
+            <Active> 
+                <Bold> Oh! </Bold> And I'm also active on:
+            </Active>
             <IconsWrapper>
                 {IconsList.map((icon, i) => (
                     <SIcon key={i} icon={icon.icon} onClick={() => navigate(icon.link)}/>
@@ -62,6 +67,13 @@ const Wrapper = styled.div`
 `;
 const IconsWrapper = styled.div`
     text-align: center;
+    ${({ theme }) => `
+        @media (max-width: ${theme.media.mobile}px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    `};
 `;
 const SIcon = styled(Icon)`
     height: 60px;
@@ -73,6 +85,9 @@ const SIcon = styled(Icon)`
             color: ${theme.colors.primary};
             transition: ${theme.transitions.cubicBezier};
         }
+        @media (max-width: ${theme.media.mobile}px) {
+            margin: 10px 0;
+        }
     `};
 `
 const ResumeWrapper = styled.div`
@@ -83,4 +98,7 @@ const Header = styled.h2`
     ${({ theme }) => `
         font-size: ${theme.size.h2};
     `};
+`;
+const Active = styled.p`
+    text-align: center;
 `;

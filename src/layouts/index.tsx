@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
@@ -33,9 +33,9 @@ const IndexLayout: React.FC = ({
 }) => {
 
   const [theme, setTheme] = useState(getTheme);
-  const themeToggler = () => {
+  const themeToggler = useCallback(() => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
-  };
+  }, [theme]);
 
   return (
     <StaticQuery
@@ -62,6 +62,8 @@ const IndexLayout: React.FC = ({
               <SToggleButton 
                 leftText={strings.toggleButton.leftText}
                 rightText={strings.toggleButton.rightText}
+                checked={theme}
+                setChecked={themeToggler}
                 onButtonClick={themeToggler}
                 {...props}
               />

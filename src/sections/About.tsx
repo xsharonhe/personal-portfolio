@@ -19,17 +19,22 @@ export const About: React.FC<IAboutProps> = ({
                 Hello! I'm Sharon, a software engineering student at the Univeristy of Waterloo, 
                 and I'm passionate about creating meaningful <Bold> data-driven </Bold> applications. 
                 Most of my experiences come from building websites, although I have dabbled with some 
-                mobile programming. I'm fascinated by the emerging fields of natural language
-                processing (NLP) and deep learning, and am currently learning big-data technologies 
-                (e.g. PySpark, Hadoop).
+                mobile programming. I'm fascinated by the emerging fields of <Bold>natural language
+                processing</Bold> (NLP) and <Bold>deep learning</Bold>, and am currently 
+                learning <Bold>big-data technologies</Bold> (e.g. PySpark, Hadoop).
             </p>
+            <br></br>
             <p>
                 I fell in love with building software because I believe in technology's ability to 
                 develop creative solutions for the complex issues our society faces. I previously 
-                volunteered with the <Bold> Coronavirus Visualization Team </Bold> to analyze COVID-19's
-                impact on the aviation industry, and I'm currently volunteering with x and y as a web developer.
-                See more about my experiences <Link to='#experiences'> <Bold isLink={true}>here.</Bold> </Link>
+                volunteered with the <Link to='https://scholar.harvard.edu/cvt/home'><Bold isLink={true}>Coronavirus Visualization Team</Bold></Link>,
+                a student organization founded at Harvard to fight the COVID-19 infodemic, to analyze the pandemic's
+                impact on the aviation industry. Currently, I'm volunteering at <Link to='www.unitic.net'>
+                <Bold isLink={true}>Unitic</Bold></Link>, building a machine-learning based
+                diagnostic tool for Tourette's Syndrome, and y as a web developer.
+                See more about my experiences <Link to='#experiences'> <Bold isLink={true}>here</Bold></Link>.
             </p>
+            <br></br>
             <p>
                 {strings.about.third}
             </p>
@@ -60,6 +65,7 @@ const TechWrapper = styled.ul`
             margin-bottom: 10px;
             padding-left: 10px;
             color: ${theme.colors.primary};
+            list-style-type: circle;
         }
     `};
 `;

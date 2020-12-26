@@ -1,7 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import { IMainTemplate } from './theme';
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
+export const GlobalStyle = createGlobalStyle<{theme: DefaultTheme}>`
     ${({ theme }) => `
         *,
         *::before,
@@ -28,7 +27,7 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
                 padding: 80px 200px;
             }
             @media (max-width: ${theme.media.tablet}px) {
-                padding: 80px 90px;
+                padding: 80px 50px;
             }
             @media (max-width: ${theme.media.mobile}px) {
                 padding: 40px 20px;
