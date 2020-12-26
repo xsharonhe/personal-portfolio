@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
             background-color: ${theme.colors.background};
             color: ${theme.colors.text};
             font-family: ${theme.font.body};
+            font-size: ${theme.size.defaultLarger};
             overflow-x: hidden;
             overflow-y: scroll;
             -webkit-text-size-adjust: 100%;

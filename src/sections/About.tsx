@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby'; 
 
-import { Heading } from '../components/Texts';
+import { Heading, Bold } from '../components/Texts';
 import { strings } from '../utils/strings';
 
 interface IAboutProps extends React.HTMLAttributes<HTMLDivElement> {};
@@ -17,18 +17,18 @@ export const About: React.FC<IAboutProps> = ({
             </Heading>
             <p> 
                 Hello! I'm Sharon, a software engineering student at the Univeristy of Waterloo, 
-                and I'm passionate about creating meaningful <SBold> data-driven </SBold> applications. 
+                and I'm passionate about creating meaningful <Bold> data-driven </Bold> applications. 
                 Most of my experiences come from building websites, although I have dabbled with some 
-                mobile programming as well. I'm fascinated by the emerging fields of natural language
+                mobile programming. I'm fascinated by the emerging fields of natural language
                 processing (NLP) and deep learning, and am currently learning big-data technologies 
                 (e.g. PySpark, Hadoop).
             </p>
             <p>
                 I fell in love with building software because I believe in technology's ability to 
                 develop creative solutions for the complex issues our society faces. I previously 
-                volunteered with the <SBold> Coronavirus Visualization Team </SBold> to analyze COVID-19's
+                volunteered with the <Bold> Coronavirus Visualization Team </Bold> to analyze COVID-19's
                 impact on the aviation industry, and I'm currently volunteering with x and y as a web developer.
-                See more about my experiences <Link to='#experiences'> <SBold><u>here</u>.</SBold> </Link>
+                See more about my experiences <Link to='#experiences'> <Bold isLink={true}>here.</Bold> </Link>
             </p>
             <p>
                 {strings.about.third}
@@ -43,13 +43,7 @@ export const About: React.FC<IAboutProps> = ({
 };
 
 const Wrapper = styled.div`
-    line-height: 2;
-`;
-const SBold = styled.span`
-    font-weight: 700;
-    ${({ theme }) => `
-        color: ${theme.colors.primary};
-    `};
+    line-height: 1.75;
 `;
 const TechWrapper = styled.ul`
     display: grid;

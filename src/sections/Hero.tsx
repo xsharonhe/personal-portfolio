@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql, navigate } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 import Typewriter from 'typewriter-effect';
 
 import { strings } from '../utils/strings';
@@ -59,10 +59,9 @@ export const Hero: React.FC<IHeroProps> = ({
             </>
             <SImageWrapper onClick={() => navigate('#contact')}>
                 <Container>
-                    <Img 
+                    <SImg 
                         fluid={data.profile.childImageSharp.fluid}
                         alt='Profile'
-                        style={{ borderRadius: '18px' }}
                     />
                 </Container>
                 <Caption> 
@@ -98,10 +97,14 @@ const SName = styled.h1`
 `;
 const SImageWrapper = styled.div`
     max-width: 180px;
-    &:hover {
-        transform: scale(1.07);
-    }
+    opacity: 0.9;
     ${({ theme }) => `
+        &:hover {
+            transform: scale(1.07);
+            transition: ${theme.transitions.cubicBezier};
+            background-color: ${theme.colors.primaryO};
+        }
+        border-radius: ${theme.radius.border};
         @media (max-width: ${theme.media.tablet}px) {
             padding-bottom: 50px;
             margin: auto;
@@ -124,12 +127,16 @@ const STypewriterWrapper = styled.div`
 `;
 const Container = styled.div`
     ${({ theme }) => `
-        opacity: 0.9
         border-radius: ${theme.radius.border};
         border: 4px solid ${theme.colors.primary};
         background-color: ${theme.colors.primary};
-        :hover {
-            opacity: 1.1;
-        }
     `};
+`;
+interface ImageProps {
+    fluid: FluidObject | FluidObject[]
+}
+const SImg = styled(Img)<ImageProps>`
+    ${({ theme }) => `
+        border-radius: ${theme.radius.border};
+    `}
 `;

@@ -17,5 +17,21 @@ export const strings = {
     about: {
         title: 'About Me',
         third: "Here are some of the technologies I'm currently working with:",
-    }
+    },
+    experiences: {
+        title: 'Experiences'
+    },
+    projects: {
+        title: 'Projects'
+    },
+    contact: {
+        title: "Let's connect!",
+        resume: {
+            header: 'Download my resume?',
+            content: 'Take a copy.'
+        },
+        linkedin: 'https://www.linkedin.com/in/sharon-he-4214541ab/',
+        github: 'https://github.com/xsharonhe',
+    },
+    email: 'sharon.he1@uwaterloo.ca'
 };

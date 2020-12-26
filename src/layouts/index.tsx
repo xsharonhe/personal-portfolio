@@ -7,7 +7,7 @@ import { GlobalStyle } from '../theme/GlobalStyle';
 import { lightTheme, darkTheme } from '../theme/theme';
 import { strings } from '../utils/strings';
 
-import { ToggleButton } from '../components/ToggleButton/ToggleButton';
+import { ToggleButton } from '../components/Buttons';
 
 interface StaticQueryProps {
   site: {

@@ -4,20 +4,19 @@ import styled from 'styled-components';
 import { Heading } from '../components/Texts';
 import { strings } from '../utils/strings';
 
-interface IExperiencesProps extends React.HTMLAttributes<HTMLDivElement> {};
+interface IProjectsProps extends React.HTMLAttributes<HTMLDivElement> {};
 
-export const Experiences: React.FC<IExperiencesProps> = ({
+export const Projects: React.FC<IProjectsProps> = ({
     ...props
 }) => {
     return (
-        <Wrapper id='experiences' {...props}>
-            <Heading numberText='02.'>
-                {strings.experiences.title}
+        <Wrapper id='projects' {...props}>
+            <Heading numberText='03.'>
+                {strings.projects.title}
             </Heading>
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
-
 `;

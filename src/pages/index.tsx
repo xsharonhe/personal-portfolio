@@ -1,7 +1,7 @@
 import React from 'react';
 
 import IndexLayout from '../layouts';
-import { Hero, About, Experiences } from '../sections';
+import { Hero, About, Experiences, Projects, Contact } from '../sections';
 
 const IndexPage = () => {
     return (
@@ -9,6 +9,8 @@ const IndexPage = () => {
         <Hero style={{ marginTop: '42px' }}/>
         <About style={{ marginTop: '80px' }}/>
         <Experiences style={{ marginTop: '80px' }}/>
+        <Projects style={{ marginTop: '80px' }}/>
+        <Contact style={{ marginTop: '80px', paddingBottom: '150px' }}/>
       </IndexLayout>
   );
 }
