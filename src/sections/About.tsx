@@ -27,10 +27,10 @@ export const About: React.FC<IAboutProps> = ({
             <p>
                 I fell in love with building software because I believe in technology's ability to 
                 develop creative solutions for the complex issues our society faces. I previously 
-                volunteered with the <Link to='https://scholar.harvard.edu/cvt/home'><Bold isLink={true}>Coronavirus Visualization Team</Bold></Link>,
+                volunteered with the <a href='https://scholar.harvard.edu/cvt/home'><Bold isLink={true}>Coronavirus Visualization Team</Bold></a>,
                 a student organization founded at Harvard to fight the COVID-19 infodemic, to analyze the pandemic's
-                impact on the aviation industry. Currently, I'm volunteering at <Link to='www.unitic.net'>
-                <Bold isLink={true}>Unitic</Bold></Link>, building a machine-learning based
+                impact on the aviation industry. Currently, I'm volunteering at <a href='https://www.unitic.net'>
+                <Bold isLink={true}>Unitic</Bold></a>, building a machine-learning based
                 diagnostic tool for Tourette's Syndrome, and y as a web developer.
                 See more about my experiences <Link to='#experiences'> <Bold isLink={true}>here</Bold></Link>.
             </p>

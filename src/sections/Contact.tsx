@@ -37,7 +37,7 @@ export const Contact: React.FC<IContactProps> = ({
             </Heading>
             <p>
                 I'm always interested in new opportunities and working with
-                new people. Be it a quick chat or questions you
+                new people. Be it a quick chat or asking questions you
                 have, feel free to reach out at
                 <a href={`mailto:${strings.email}`}> <Bold isLink={true}> 
                 sharon.he1@uwaterloo.ca</Bold></a>.

@@ -34,5 +34,7 @@ export const strings = {
         github: 'https://github.com/xsharonhe',
         medium: 'https://medium.com/@xsharonhe'
     },
-    email: 'sharon.he1@uwaterloo.ca'
+    email: 'sharon.he1@uwaterloo.ca',
+    copyright: 'Developed by Sharon He ',
+    year: ' 2021.'
 };
