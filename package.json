@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-typescript-plus",
-  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
+  "name": "sharon_he_personal_website",
+  "description": "Sharon He's personal portfolio",
   "version": "1.0.0",
   "private": true,
-  "author": "Resi Respati <resir014@gmail.com>",
+  "author": "Sharon He",
   "keywords": [
     "gatsby"
   ],
@@ -57,6 +57,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-transition-group": "^4.4.1",
     "styled-components": "^4.4.1",
     "styled-icons": "^10.23.0",
     "ts-node": "^9.1.0",

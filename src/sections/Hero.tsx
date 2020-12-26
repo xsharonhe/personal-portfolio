@@ -4,17 +4,9 @@ import { useStaticQuery, graphql, navigate } from 'gatsby';
 import Img from 'gatsby-image';
 import Typewriter from 'typewriter-effect';
 
-import { getTheme } from '../layouts/index';
+import { strings } from '../utils/strings';
 
 interface IHeroProps extends React.HTMLAttributes<HTMLDivElement> {};
-
-const isLight = () => {
-    const theme = getTheme();
-    if(theme === 'light') {
-        return true;
-    }
-    return false;
-};
 
 export const Hero: React.FC<IHeroProps> = ({
     ...props
@@ -31,14 +23,14 @@ export const Hero: React.FC<IHeroProps> = ({
         }
     `);
     return (
-        <Wrapper id='#hero' {...props}>
+        <Wrapper id='hero' {...props}>
             <>
                 <div style={{ paddingTop: '20px' }}>
                     <p> 
-                        Hey there! My name is 
+                        {strings.hero.introduction}
                     </p>
                     <SName> 
-                        Sharon He
+                        {strings.hero.name}
                     </SName>
                     <STypewriterWrapper>
                         <Typewriter
@@ -47,13 +39,13 @@ export const Hero: React.FC<IHeroProps> = ({
                                     .pauseFor(2000)
                                     .deleteChars(15)
                                     .start()
-                                    .typeString('am an unabashed data nerd.')
+                                    .typeString('am a data nerd.')
                                     .pauseFor(2000)
-                                    .deleteChars(26)
+                                    .deleteChars(15)
                                     .typeString('am a self-motivator.')
                                     .pauseFor(2000)
                                     .deleteChars(20)
-                                    .typeString('am a dessert connoisseur.')
+                                    .typeString('am a food connoisseur.')
                                     .pauseFor(2000)
                                     .deleteAll()
                             }}
@@ -65,13 +57,17 @@ export const Hero: React.FC<IHeroProps> = ({
                     </STypewriterWrapper>
                 </div>
             </>
-            <SImageWrapper onClick={() => navigate('')}>
-                <Img 
-                    fluid={data.profile.childImageSharp.fluid}
-                    alt='Profile'
-                    style={{ borderRadius: '20px', border: `3px solid ${isLight() ? `#79a3b1` : `#8bcdcd`}` }}
-                />
-                <Caption> Let's connect! </Caption>
+            <SImageWrapper onClick={() => navigate('#contact')}>
+                <Container>
+                    <Img 
+                        fluid={data.profile.childImageSharp.fluid}
+                        alt='Profile'
+                        style={{ borderRadius: '18px' }}
+                    />
+                </Container>
+                <Caption> 
+                    {strings.hero.caption} 
+                </Caption>
             </SImageWrapper>
         </Wrapper>
     );
@@ -101,9 +97,9 @@ const SName = styled.h1`
     `};
 `;
 const SImageWrapper = styled.div`
-    max-width: 200px;
+    max-width: 180px;
     &:hover {
-        transform: scale(1.03);
+        transform: scale(1.07);
     }
     ${({ theme }) => `
         @media (max-width: ${theme.media.tablet}px) {
@@ -125,4 +121,15 @@ const STypewriterWrapper = styled.div`
         color: ${theme.colors.primary};
     `};
     margin-bottom: '40px';
+`;
+const Container = styled.div`
+    ${({ theme }) => `
+        opacity: 0.9
+        border-radius: ${theme.radius.border};
+        border: 4px solid ${theme.colors.primary};
+        background-color: ${theme.colors.primary};
+        :hover {
+            opacity: 1.1;
+        }
+    `};
 `;

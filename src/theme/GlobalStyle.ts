@@ -37,6 +37,5 @@ export const GlobalStyle = createGlobalStyle<{theme: IMainTemplate}>`
             text-decoration: none;
             color: ${theme.colors.text};
         }
-
     `};
 `;

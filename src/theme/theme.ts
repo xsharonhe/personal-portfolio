@@ -68,8 +68,8 @@ export const lightTheme: IMainTemplate = {
 export const darkTheme: IMainTemplate = {
     ...baseTheme,
     colors: {
-        primary: '#8bcdcd',
-        background: '#41444b',
+        primary: '#bbe1fa',
+        background: '#394867',
         text: '#f4eeed',
     },
 };
