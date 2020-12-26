@@ -58,6 +58,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "styled-components": "^4.4.1",
+    "styled-icons": "^10.23.0",
     "ts-node": "^9.1.0",
     "typescript": "^3.9.7",
     "typewriter-effect": "^2.17.0"

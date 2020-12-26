@@ -19,17 +19,18 @@ interface StaticQueryProps {
   }
 };
 
+export const getTheme = (): string => {
+  const currentTime = new Date().getHours();
+  if(7 <= currentTime && currentTime < 18) {
+    return 'light';
+  } 
+  return 'dark';
+};
+
 const IndexLayout: React.FC = ({
     children,
     ...props
 }) => {
-  const getTheme = (): string => {
-    const currentTime = new Date().getHours();
-    if(7 <= currentTime && currentTime < 18) {
-      return 'light';
-    } 
-    return 'dark';
-  };
 
   const [theme, setTheme] = useState(getTheme);
   const themeToggler = () => {

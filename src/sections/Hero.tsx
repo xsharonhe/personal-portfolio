@@ -4,7 +4,17 @@ import { useStaticQuery, graphql, navigate } from 'gatsby';
 import Img from 'gatsby-image';
 import Typewriter from 'typewriter-effect';
 
+import { getTheme } from '../layouts/index';
+
 interface IHeroProps extends React.HTMLAttributes<HTMLDivElement> {};
+
+const isLight = () => {
+    const theme = getTheme();
+    if(theme === 'light') {
+        return true;
+    }
+    return false;
+};
 
 export const Hero: React.FC<IHeroProps> = ({
     ...props
@@ -13,7 +23,7 @@ export const Hero: React.FC<IHeroProps> = ({
         query {
             profile: file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "profile.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 300, traceSVG: { color: "#79a3b1" }) {
+                    fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                 }
@@ -59,7 +69,7 @@ export const Hero: React.FC<IHeroProps> = ({
                 <Img 
                     fluid={data.profile.childImageSharp.fluid}
                     alt='Profile'
-                    style={{ borderRadius: '20px', border: '3px solid #79a3b1'}}
+                    style={{ borderRadius: '20px', border: `3px solid ${isLight() ? `#79a3b1` : `#8bcdcd`}` }}
                 />
                 <Caption> Let's connect! </Caption>
             </SImageWrapper>

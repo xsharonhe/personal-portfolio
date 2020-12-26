@@ -1,8 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby'; 
+
 import { Heading } from '../components/Texts/Heading';
 
 interface IAboutProps extends React.HTMLAttributes<HTMLDivElement> {};
+
+const technologies = [
+    'TypeScript',
+    'MERN Stack',
+    'Django',
+    'Tensorflow',
+];
 
 export const About: React.FC<IAboutProps> = ({
     ...props
@@ -12,13 +21,55 @@ export const About: React.FC<IAboutProps> = ({
             <Heading numberText='01.'>
                 About Me
             </Heading>
-            <p> Hello! I'm Sharon, a software engineering student at the Univeristy of Waterloo, 
-                and 
+            <p> 
+                Hello! I'm Sharon, a software engineering student at the Univeristy of Waterloo, 
+                and I'm passionate about creating meaningful <SBold> data-driven</SBold> applications. 
+                I'm fascinated by the emerging fields of natural language processing (NLP) and 
+                deep learning, and am currently learning big-data technologies (e.g. PySpark, Hadoop).
             </p>
+            <p>
+                I fell in love with building software because I believe in technology's ability to 
+                develop creative solutions for the complex issues our society faces. I previously 
+                volunteered with the <SBold> Coronavirus Visualization Team </SBold> to analyze COVID-19's
+                impact on the aviation industry, and I'm currently volunteering with x and y. See more about
+                my experiences <Link to='#experiences'> <SBold><u>here</u>.</SBold> </Link>
+            </p>
+            <p>
+                Here are some of the technologies I'm currently working with:
+            </p>
+            <TechWrapper>
+                {technologies && technologies.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                ))}
+            </TechWrapper>
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
-    line-height: 1.25;
+    line-height: 2;
+`;
+const SBold = styled.span`
+    font-weight: 700;
+    ${({ theme }) => `
+        color: ${theme.colors.primary};
+    `};
+`;
+const TechWrapper = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(2, minmax(160px, 320px)) ;
+    margin-top: 20px;
+    overflow: hidden;
+    ${({ theme }) => `
+        @media (max-width: ${theme.media.mobile}px) {
+            display: flex;
+            flex-direction: column;
+        }
+        li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            color: ${theme.colors.primary};
+        }
+    `};
 `;
