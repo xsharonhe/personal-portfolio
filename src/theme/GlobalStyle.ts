@@ -23,8 +23,11 @@ export const GlobalStyle = createGlobalStyle<{theme: DefaultTheme}>`
             @media(max-width: ${theme.media.desktop}px) {
                 padding: 80px 360px;
             }
+            @media(max-width: 1600px) {
+                padding: 80px 240px;
+            }
             @media(max-width: ${theme.media.laptop}px) {
-                padding: 80px 200px;
+                padding: 80px 140px;
             }
             @media (max-width: ${theme.media.tablet}px) {
                 padding: 80px 50px;

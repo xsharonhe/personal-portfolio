@@ -106,13 +106,12 @@ export const Experiences: React.FC<IExperiencesProps> = ({
     );
 };
 
-const Wrapper = styled.div`
-`;
+const Wrapper = styled.div``;
 const TabTitleWrapper = styled.div`
     display: flex;
     flex-direction: row;
     padding-bottom: 20px;
-    overflow: scroll;
+    overflow-x: auto;
 `;
 const Container = styled.div`
     display: flex;
@@ -122,6 +121,7 @@ const Container = styled.div`
     font-size: 1.55rem;
     @media (max-width: 500px) {
         flex-direction: column;
+        font-size: 1.3rem;
     }
 `;
 const Sh5 = styled.h5` 

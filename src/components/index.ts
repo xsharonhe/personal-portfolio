@@ -1,2 +1,4 @@
-export * from './Texts/Heading';
-export * from './ToggleButton/ToggleButton';
+export * from './Texts';
+export * from './Buttons';
+export * from './Icon';
+export * from './TabList';

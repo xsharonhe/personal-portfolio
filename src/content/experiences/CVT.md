@@ -10,7 +10,8 @@ featuredImage2: './images/2CVT.png'
 imageUrl: 'https://drive.google.com/drive/folders/1A6Z4vcLkyvLuZUveaguaxZJ9HDxREkmR'
 imageUrl2: 'https://docs.google.com/document/d/1QLUiJNBFXxDlMnV_eSejgS2Q_1OpSXOcQBNqe1ZTlhs/edit'
 ---
-- Web scraped from international embassy websites to compile a dataset for travel advisory website, increasing efficiency by 50% (https://bit.ly/34sg5qr)
-- Created a Python script to clean large Twitter datasets (reducing 120,000 tweets to 70,000) and using <span>VADER</span> to perform sentiment analysis (Open-source project found at: https://app.jogl.io/project/20)
+- Web scraped from international embassy websites to compile a dataset for travel advisory website, increasing efficiency by 50% 
+- Created a Python script to clean large Twitter datasets (reducing 120,000 tweets to 70,000) and using <span>VADER</span> to perform sentiment analysis (Open-source project found <a href='https://app.jogl.io/project/20'>here</a>.)
 - Led a team of 5 to investigate the effect of the oil and gas industry on the aviation industry using <span>numPy, pandas, matplotlib, seaborn,</span> and <span>Tableau</span> to create interactive data visualizations
-(Final report to Mickensey & Co. found at: https://bit.ly/3mPEVXt)
+(Final report to Mickensey & Co. found <a href='https://bit.ly/3mPEVXt'>
+here</a>.)
