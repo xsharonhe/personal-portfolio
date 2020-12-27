@@ -60,12 +60,5 @@ const TechWrapper = styled.ul`
             display: flex;
             flex-direction: column;
         }
-        li {
-            position: relative;
-            margin-bottom: 10px;
-            padding-left: 10px;
-            color: ${theme.colors.primary};
-            list-style-type: circle;
-        }
     `};
 `;

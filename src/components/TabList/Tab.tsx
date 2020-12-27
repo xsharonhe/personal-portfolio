@@ -1,24 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql, navigate } from 'gatsby';
 
-interface ITabProps extends React.HTMLAttributes<HTMLDivElement> {};
-
-export const Tab: React.FC<ITabProps> = ({
-    ...props
-}) => {
-
-    return (
-        <Wrapper {...props}>
-            
-        </Wrapper>
-    );
+interface ITabProps extends React.HTMLAttributes<HTMLButtonElement> {
+    isActive?: boolean;
 };
 
-const Wrapper = styled.div`
-    
-`;
-const Icon = styled.svg`
-    width: 35px;
-    height: 35px;
+export const Tab: React.FC<ITabProps> = ({
+    children,
+    isActive = false,
+    ...props
+}) => (
+    <STab isActive={isActive} {...props}>
+        {children}
+    </STab>
+);
+
+const STab = styled.button<ITabProps>`
+    ${({ theme, isActive }) => `
+        display: flex;
+        align-items: center;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        height: 40px;
+        background-color: ${isActive ? `${theme.colors.primaryO}` : 'transparent'};
+        color: ${isActive ? `${theme.colors.primary}` : `${theme.colors.text}`}
+        padding: 0 20px 2px;
+        font-size: ${theme.size.defaultLarger};
+        font-family: ${theme.font.body};
+        border-bottom: 2px solid ${isActive ? `${theme.colors.primary}` : `${theme.colors.text}`};
+        white-space: nowrap;
+        transition: ${theme.transitions.cubicBezier};
+
+        :focus
+        :hover {
+            background-color: ${theme.colors.primaryO};
+        }
+    `};
 `;

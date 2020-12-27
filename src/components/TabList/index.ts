@@ -1,2 +1,2 @@
 export * from './Tab';
-export * from './TabsList';
+export * from './TabContent';

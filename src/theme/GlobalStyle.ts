@@ -35,7 +35,25 @@ export const GlobalStyle = createGlobalStyle<{theme: DefaultTheme}>`
         }
         a {
             text-decoration: none;
-            color: ${theme.colors.text};
+            color: ${theme.colors.primary};
+            text-decoration: underline;
+            &:hover {
+                transition: ${theme.transitions.cubicBezier};
+                color: ${theme.colors.hover};
+            }
+        }
+        ul {
+            li {
+                position: relative;
+                margin-bottom: 10px;
+                padding-left: 10px;
+                color: ${theme.colors.primary};
+                list-style-type: circle;
+            }
+        }
+        span {
+            color: ${theme.colors.primary};
+            font-weight: 700;
         }
     `};
 `;

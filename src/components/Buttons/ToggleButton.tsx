@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import Switch from 'react-switch';
 import { Moon } from '@styled-icons/evaicons-solid/Moon';
 import { Sun } from '@styled-icons/heroicons-solid/Sun';
