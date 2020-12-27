@@ -27,16 +27,18 @@ interface IBaseTemplate {
 };
 
 declare module 'styled-components' {
-        export interface DefaultTheme extends IBaseTemplate {
-            colors: {
-                primary: string;
-                background: string;
-                text: string;
-                hover: string;
-                primaryO: string;
-            }
+    export interface DefaultTheme extends IBaseTemplate {
+        colors: {
+            primary: string;
+            secondary: string;
+            background: string;
+            text: string;
+            hover: string;
+            primaryO: string;
+        },
+        boxShadow: string;
     }
-}
+};
 
 export const baseTheme: IBaseTemplate = {
     font: {
@@ -72,20 +74,24 @@ export const lightTheme = {
     ...baseTheme,
     colors: {
         primary: '#79a3b1',
+        secondary: '#cdc9c3',
         background: '#f4eeed',
         text: '#393e46',
         hover: '#394867',
         primaryO: 'rgba(121, 163, 177, 0.2)'
     },
+    boxShadow: '0 20px 40px -15px #394867'
 };
 
 export const darkTheme = {
     ...baseTheme,
     colors: {
         primary: '#bbe1fa',
+        secondary: '#9ba4b4',
         background: '#394867',
         text: '#f4eeed',
         hover: '#709fb0',
         primaryO: 'rgba(187, 225, 250, 0.1)'
     },
+    boxShadow: '0 15px 35px -15px #f4eeed'
 };

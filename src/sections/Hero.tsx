@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
 import Typewriter from 'typewriter-effect';
 
 import { strings } from '../utils/strings';
@@ -59,7 +59,7 @@ export const Hero: React.FC<IHeroProps> = ({
             </>
             <SImageWrapper>
                 <Container>
-                    <Img 
+                    <SImg 
                         fluid={data.profile.childImageSharp.fluid}
                         alt='Profile'
                         style={{ borderRadius: '20px'}}
@@ -125,5 +125,15 @@ const Container = styled.div`
     ${({ theme }) => `
         border-radius: ${theme.radius.border};
         background-color: ${theme.colors.primary};
+    `};
+`;
+interface ImgProps {
+    fluid: FluidObject | FluidObject[];
+}
+const SImg = styled(Img)<ImgProps>`
+    ${({ theme }) => `
+        background-color: ${theme.colors.primary};
+        border: 4px solid ${theme.colors.primary};
+        box-shadow: ${theme.boxShadow};
     `};
 `;

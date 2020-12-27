@@ -208,7 +208,8 @@ interface ImgProps {
 }
 const SImg = styled(Img)<ImgProps>`
     ${({ theme }) => `
-        background-color: ${theme.colors.primary};
-        border: 4px solid ${theme.colors.primary};
+        background-color: ${theme.colors.primaryO};
+        border: 5px solid ${theme.colors.primaryO};
+        box-shadow: ${theme.boxShadow};
     `};
 `;

@@ -29,8 +29,8 @@ export const Past: React.FC<IPastProps> = ({
     return (
         <div style={{ lineHeight: 1.5 }} {...props}>
             {!!pastData &&
-                pastData.map((project: any) => {
-                    const { frontmatter, html } = project.node;
+                pastData.map((past: any) => {
+                    const { frontmatter, html } = past.node;
                     const { title } = frontmatter;
                     return (
                         <>
