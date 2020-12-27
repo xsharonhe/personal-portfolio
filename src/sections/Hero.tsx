@@ -16,7 +16,7 @@ export const Hero: React.FC<IHeroProps> = ({
             profile: file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "profile.jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }

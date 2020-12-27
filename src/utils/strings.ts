@@ -19,7 +19,8 @@ export const strings = {
         third: "Here are some of the technologies I'm currently working with:",
     },
     experiences: {
-        title: 'Experiences'
+        title: 'Dev. Experiences',
+        samples: 'Here are some samples!'
     },
     projects: {
         title: 'Projects'

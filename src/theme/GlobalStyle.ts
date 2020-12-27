@@ -53,7 +53,6 @@ export const GlobalStyle = createGlobalStyle<{theme: DefaultTheme}>`
         }
         span {
             color: ${theme.colors.primary};
-            font-weight: 700;
         }
     `};
 `;
