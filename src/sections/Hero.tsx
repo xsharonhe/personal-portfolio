@@ -57,7 +57,7 @@ export const Hero: React.FC<IHeroProps> = ({
                     </STypewriterWrapper>
                 </div>
             </>
-            <SImageWrapper onClick={() => navigate('#contact')}>
+            <SImageWrapper>
                 <Container>
                     <Img 
                         fluid={data.profile.childImageSharp.fluid}
@@ -65,9 +65,6 @@ export const Hero: React.FC<IHeroProps> = ({
                         style={{ borderRadius: '20px'}}
                     />
                 </Container>
-                <Caption> 
-                    {strings.hero.caption} 
-                </Caption>
             </SImageWrapper>
         </Wrapper>
     );
@@ -98,14 +95,13 @@ const SName = styled.h1`
     `};
 `;
 const SImageWrapper = styled.div`
-    max-width: 180px;
+    max-width: 230px;
     opacity: 0.9;
     ${({ theme }) => `
         &:hover {
             transform: scale(1.07);
             cursor: pointer;
             transition: ${theme.transitions.cubicBezier};
-            background-color: ${theme.colors.primaryO};
         }
         border-radius: ${theme.radius.border};
         @media (max-width: ${theme.media.tablet}px) {
@@ -115,9 +111,6 @@ const SImageWrapper = styled.div`
             width: 200px;
         }
     `};
-`;
-const Caption = styled.p`
-    text-align: center;
 `;
 const STypewriterWrapper = styled.div`
     ${({ theme }) => `
@@ -131,7 +124,6 @@ const STypewriterWrapper = styled.div`
 const Container = styled.div`
     ${({ theme }) => `
         border-radius: ${theme.radius.border};
-        border: 4px solid ${theme.colors.primary};
         background-color: ${theme.colors.primary};
     `};
 `;

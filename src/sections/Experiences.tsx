@@ -111,7 +111,7 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                                                 <Img 
                                                     fluid={featuredImage.childImageSharp.fluid}
                                                     alt={company}
-                                                    style={{ borderRadius: '8px', margin: '0 10px'}}
+                                                    style={{ borderRadius: '8px', margin: '0 10px' }}
                                                 />
                                             </SImageWrapper>
                                             {!!featuredImage2 && (
@@ -154,17 +154,17 @@ const Container = styled.div`
     }
 `;
 const SImageWrapper = styled.div`
-    max-width: 300px;
+    max-width: 270px;
     opacity: 0.9;
     ${({ theme }) => `
+        border-radius: ${theme.radius.border};
         &:hover {
-            transform: scale(1.07);
+            transform: scale(1.05);
             cursor: pointer;
             transition: ${theme.transitions.cubicBezier};
         }
-        border-radius: ${theme.radius.border};
         @media (max-width: ${theme.media.tablet}px) {
-            padding: 40px 0;
+            padding: 30px 0;
             margin: auto;
             width: 250px;
         }
@@ -183,7 +183,7 @@ const ImageSamples = styled.div`
         flex-direction: column;
         text-align: center;
         img:last-child {
-            padding-bottom: 40px;
+            padding-bottom: 30px;
         }
     }
 `;
