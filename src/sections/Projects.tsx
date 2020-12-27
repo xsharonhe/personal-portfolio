@@ -69,14 +69,16 @@ export const Projects: React.FC<IProjectsProps> = ({
                                         />
                                     </a>
                                 </SImageWrapper>
-                                <h2><span>{title}</span></h2>
-                                <TechWrapper>
-                                    {!!tech && tech.map((skill: any) => (
-                                        <p key={skill}>
-                                            {skill}&nbsp;</p>
-                                    ))}
-                                </TechWrapper>
-                                {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
+                                <TextWrapper>
+                                    <h2><span>{title}</span></h2>
+                                    <TechWrapper>
+                                        {!!tech && tech.map((skill: any) => (
+                                            <p key={skill}>
+                                                {skill}&nbsp;</p>
+                                        ))}
+                                    </TechWrapper>
+                                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                                </TextWrapper>
                             </SProject>
                         )
                     })
@@ -90,15 +92,9 @@ export const Projects: React.FC<IProjectsProps> = ({
 
 const Wrapper = styled.div`
 `;
-const SProject = styled.div`
-`;
-const SImageWrapper = styled.div`
-    max-width: 400px;
-    opacity: 0.9;
-    position: relative;
-    z-index: 5;
+const SProject = styled.div`    
+    margin: 20px;
     ${({ theme }) => `
-        border-radius: ${theme.radius.border};
         &:hover {
             transform: scale(1.05);
             cursor: pointer;
@@ -106,18 +102,52 @@ const SImageWrapper = styled.div`
         }
     `};
 `;
+const SImageWrapper = styled.div`
+    max-width: 500px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 5;
+    ${({ theme }) => `
+        border-radius: ${theme.radius.border};
+        @media (max-width: ${theme.media.laptop}px) {
+            margin: auto;
+        }
+    `};
+`;
 const ProjectsWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     ${({ theme }) => `
-        @media (max-width: ${theme.size.tablet}px) {
-            grid-template-columns: 1fr;
+        @media (max-width: ${theme.media.laptop}px) {
+            & > * {
+                flex-grow: 1;
+            }
+            display: flex;
+            flex-direction: column;
         }
     `};
 `;
 const TechWrapper = styled.div`
+    max-width: 500px;
     ${({ theme }) => `
         display: flex;
         flex-direction: row;
+        @media (max-width: ${theme.media.laptop}px) {
+            margin: auto;
+        }
+    `};
+`;
+const TextWrapper = styled.div`
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 500px;
+    padding: 20px;
+    ${({ theme }) => `
+        background-color: ${theme.colors.secondary};
+        border-radius: ${theme.radius.default};
+        @media (max-width: ${theme.media.laptop}px) {
+            margin: auto;
+        }
     `};
 `;

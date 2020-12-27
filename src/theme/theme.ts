@@ -62,7 +62,7 @@ export const baseTheme: IBaseTemplate = {
         small: '325',
         mobile: '414',
         tablet: '850',
-        laptop: '1480',
+        laptop: '1400',
         desktop: '2560'
     },
     transitions: {
