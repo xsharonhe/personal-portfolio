@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql, navigate } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FluidObject } from 'gatsby-image';
+import { CSSTransition } from 'react-transition-group';
 
 import { Heading } from '../components/Texts';
 import { Tab, TabContent } from '../components/TabList';
@@ -14,7 +15,10 @@ export const Experiences: React.FC<IExperiencesProps> = ({
 }) => {
     const data = useStaticQuery(graphql`
         query {
-            experiences: allMarkdownRemark (sort: { fields: [frontmatter___date], order: DESC }){
+            experiences: allMarkdownRemark (
+                filter: { fileAbsolutePath: { regex: "/experiences/" } }
+                sort: { fields: [frontmatter___date], order: DESC }
+            ){
                 edges {
                     node {
                         frontmatter {
@@ -58,16 +62,18 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                         const { frontmatter } = experience.node;
                         const { company } = frontmatter;
                         return (
-                            <Tab 
-                                key={company}
-                                role='tab'
-                                aria-selected={active === i}
-                                aria-controls={company}
-                                isActive={active === i}
-                                onClick={() => setActive(i)}
-                            >
-                                {company}
-                            </Tab>
+                            <CSSTransition key={i} in={active === i} timeout={250} classNames='fade'>
+                                <Tab 
+                                    key={company}
+                                    role='tab'
+                                    aria-selected={active === i}
+                                    aria-controls={company}
+                                    isActive={active === i}
+                                    onClick={() => setActive(i)}
+                                >
+                                    {company}
+                                </Tab>
+                            </CSSTransition>
                         )
                     })
                 }
@@ -108,7 +114,7 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                                         </span></p>
                                         <ImageSamples>
                                             <SImageWrapper onClick={() => navigate(imageUrl)}>
-                                                <Img 
+                                                <SImg 
                                                     fluid={featuredImage.childImageSharp.fluid}
                                                     alt={company}
                                                     style={{ borderRadius: '8px', margin: '0 10px' }}
@@ -116,7 +122,7 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                                             </SImageWrapper>
                                             {!!featuredImage2 && (
                                                 <SImageWrapper onClick={() => navigate(imageUrl2)}>
-                                                    <Img 
+                                                    <SImg 
                                                         fluid={featuredImage2.childImageSharp.fluid}
                                                         alt={company}
                                                         style={{ borderRadius: '8px', margin: '0 10px'}}
@@ -141,7 +147,6 @@ const TabTitleWrapper = styled.div`
     display: flex;
     flex-direction: row;
     padding-bottom: 20px;
-    overflow-x: auto;
 `;
 const Container = styled.div`
     display: flex;
@@ -154,7 +159,7 @@ const Container = styled.div`
     }
 `;
 const SImageWrapper = styled.div`
-    max-width: 270px;
+    max-width: 300px;
     opacity: 0.9;
     ${({ theme }) => `
         border-radius: ${theme.radius.border};
@@ -197,4 +202,13 @@ const Sh3 = styled.h3`
     @media (max-width: 500px) {
         margin-bottom: -20px;
     }
+`;
+interface ImgProps {
+    fluid: FluidObject | FluidObject[];
+}
+const SImg = styled(Img)<ImgProps>`
+    ${({ theme }) => `
+        background-color: ${theme.colors.primary};
+        border: 4px solid ${theme.colors.primary};
+    `};
 `;

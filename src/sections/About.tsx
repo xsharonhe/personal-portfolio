@@ -32,7 +32,6 @@ export const About: React.FC<IAboutProps> = ({
                 impact on the aviation industry. Currently, I'm volunteering at <a href='https://www.unitic.net'>
                 <Bold isLink={true}>Unitic</Bold></a>, building a machine-learning based
                 diagnostic tool for Tourette's Syndrome, and y as a web developer.
-                See more about my experiences <Link to='#experiences'> <Bold isLink={true}>here</Bold></Link>.
             </p>
             <br></br>
             <p>

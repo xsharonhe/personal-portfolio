@@ -23,7 +23,8 @@ export const strings = {
         samples: 'Here are some samples!'
     },
     projects: {
-        title: 'Projects'
+        title: 'Projects',
+        caption: "Here are some projects I'm proud of."
     },
     contact: {
         title: "Let's connect!",
