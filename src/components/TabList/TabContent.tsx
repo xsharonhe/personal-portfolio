@@ -23,6 +23,8 @@ const Wrapper = styled.div`
     margin-right: 10px;
 
     ${({ theme }) => `
+        transition: ${theme.transitions.cubicBezier};
+        transition-delay: 0.5s;
         li {
             color: ${theme.colors.text};
         }

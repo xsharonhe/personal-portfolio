@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql, navigate } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { CSSTransition } from 'react-transition-group';
 
 import { Heading } from '../components/Texts';
 import { Tab, TabContent } from '../components/TabList';
@@ -62,18 +61,16 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                         const { frontmatter } = experience.node;
                         const { company } = frontmatter;
                         return (
-                            <CSSTransition key={i} in={active === i} timeout={250} classNames='fade'>
-                                <Tab 
-                                    key={company}
-                                    role='tab'
-                                    aria-selected={active === i}
-                                    aria-controls={company}
-                                    isActive={active === i}
-                                    onClick={() => setActive(i)}
-                                >
-                                    {company}
-                                </Tab>
-                            </CSSTransition>
+                            <Tab 
+                                key={company}
+                                role='tab'
+                                aria-selected={active === i}
+                                aria-controls={company}
+                                isActive={active === i}
+                                onClick={() => setActive(i)}
+                            >
+                                {company}
+                            </Tab>
                         )
                     })
                 }
@@ -82,20 +79,13 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                 {!!experiencesData &&
                     experiencesData.map((experience: any, i: number) => {
                         const { frontmatter, html } = experience.node;
-                        const { 
-                            title, 
-                            url, 
-                            range, 
-                            featuredImage, 
-                            featuredImage2,
-                            company, 
-                            imageUrl,
-                            imageUrl2
-                        } = frontmatter;
+                        const { title, url, range, company } = frontmatter;
                         return (
-                            <TabContent
+                            <STabContent
                                 key={company}
+                                role='tab-panel'
                                 hidden={active !== i}
+                                aria-hidden={active !== i}
                             >
                                 <Container>
                                     <Sh3>{title}</Sh3>
@@ -107,32 +97,7 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                                 </Container>
                                 <Sh5>{range}</Sh5>
                                 <div dangerouslySetInnerHTML={{ __html: html }} />
-                                {!!featuredImage && (
-                                    <>
-                                        <p style={{ paddingTop: '10px', textAlign: 'center'}}><span>
-                                            {strings.experiences.samples}
-                                        </span></p>
-                                        <ImageSamples>
-                                            <SImageWrapper onClick={() => navigate(imageUrl)}>
-                                                <SImg 
-                                                    fluid={featuredImage.childImageSharp.fluid}
-                                                    alt={company}
-                                                    style={{ borderRadius: '8px', margin: '0 10px' }}
-                                                />
-                                            </SImageWrapper>
-                                            {!!featuredImage2 && (
-                                                <SImageWrapper onClick={() => navigate(imageUrl2)}>
-                                                    <SImg 
-                                                        fluid={featuredImage2.childImageSharp.fluid}
-                                                        alt={company}
-                                                        style={{ borderRadius: '8px', margin: '0 10px'}}
-                                                    />
-                                                </SImageWrapper>
-                                            )}
-                                        </ImageSamples>
-                                    </>
-                                )}
-                            </TabContent>
+                            </STabContent>
                         );
                     })
                 }
@@ -158,40 +123,6 @@ const Container = styled.div`
         flex-direction: column;
     }
 `;
-const SImageWrapper = styled.div`
-    max-width: 300px;
-    opacity: 0.9;
-    ${({ theme }) => `
-        border-radius: ${theme.radius.border};
-        &:hover {
-            transform: scale(1.05);
-            cursor: pointer;
-            transition: ${theme.transitions.cubicBezier};
-        }
-        @media (max-width: ${theme.media.tablet}px) {
-            padding: 30px 0;
-            margin: auto;
-            width: 250px;
-        }
-    `};
-`;
-const ImageSamples = styled.div`
-    text-align: center;
-    & > * {
-        flex-grow: 1;
-    }
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 500px) {
-        flex-direction: column;
-        text-align: center;
-        img:last-child {
-            padding-bottom: 30px;
-        }
-    }
-`;
 const Sh5 = styled.h5` 
     @media (max-width: 500px) {
         text-align: center;
@@ -203,13 +134,34 @@ const Sh3 = styled.h3`
         margin-bottom: -20px;
     }
 `;
-interface ImgProps {
-    fluid: FluidObject | FluidObject[];
-}
-const SImg = styled(Img)<ImgProps>`
-    ${({ theme }) => `
-        background-color: ${theme.colors.primaryO};
-        border: 5px solid ${theme.colors.primaryO};
-        box-shadow: ${theme.boxShadow};
-    `};
+const STabContent = styled(TabContent)`
+    animation: fadeIn ease 1.5s;
+    -webkit-animation: fadeIn ease 1.5s;
+    -moz-animation: fadeIn ease 1.5s;
+    -o-animation: fadeIn ease 1.5s;
+    -ms-animation: fadeIn ease 1.5s;
+    @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    @-o-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    @-ms-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
 `;

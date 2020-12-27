@@ -31,6 +31,8 @@ const STab = styled.button<ITabProps>`
         border-bottom: 2px solid ${isActive ? `${theme.colors.primary}` : `${theme.colors.text}`};
         white-space: nowrap;
         transition: ${theme.transitions.cubicBezier};
+        transition-delay: 0.2s;
+        text-align: center;
 
         :focus
         :hover {
