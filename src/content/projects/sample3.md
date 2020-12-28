@@ -2,7 +2,6 @@
 slug: '/projects/sample3'
 title: 'Sample3'
 github: 'https://github.com/xsharonhe/personal-portfolio'
-external: 'https://github.com/xsharonhe/personal-portfolio'
 tech: 'Django, TypeScript, VADER'
 featuredImage: './images/sample.png'
 ---

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Linkedin } from '@styled-icons/bootstrap/Linkedin';
 import { Github } from '@styled-icons/bootstrap/Github';
 import { Medium } from '@styled-icons/fa-brands/Medium';
+import { LinkExternal } from '@styled-icons/boxicons-regular/LinkExternal';
 import { navigate } from 'gatsby';
 
 import { Heading, Bold } from '../components/Texts';
@@ -38,8 +39,15 @@ export const Contact: React.FC<IContactProps> = ({
             <p>
                 I'm always interested in new opportunities and working with
                 new people. Be it a quick chat or asking questions you
-                have, feel free to reach out at <a href={`mailto:${strings.email}`}><Bold isLink={true}>sharon.he1@uwaterloo.ca</Bold></a>.
+                have, feel free to reach out.
             </p>
+            <ButtonWrapper>
+                <a href={`mailto:${strings.email}`}>
+                    <Button>
+                        {strings.contact.sayHello}
+                    </Button>
+                </a>
+            </ButtonWrapper>
             <Active> 
                 <Bold> Oh! </Bold> And I'm also active on:
             </Active>
@@ -65,6 +73,7 @@ const Wrapper = styled.div`
 `;
 const IconsWrapper = styled.div`
     text-align: center;
+    padding-bottom: 30px;
     ${({ theme }) => `
         @media (max-width: ${theme.media.mobile}px) {
             display: flex;
@@ -90,7 +99,12 @@ const SIcon = styled(Icon)`
 `
 const ResumeWrapper = styled.div`
     text-align: center;
-    margin-top: 50px;
+    margin: 20px 0 50px 0;
+`;
+const ButtonWrapper = styled.div`
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: 50px;
 `;
 const Header = styled.h2`
     ${({ theme }) => `
@@ -99,4 +113,5 @@ const Header = styled.h2`
 `;
 const Active = styled.p`
     text-align: center;
+    margin-top: 10px;
 `;

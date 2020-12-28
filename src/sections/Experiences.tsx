@@ -1,9 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql, navigate } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import { Heading } from '../components/Texts';
+import { Heading } from '../components';
 import { Tab, TabContent } from '../components/TabList';
 import { strings } from '../utils/strings';
 

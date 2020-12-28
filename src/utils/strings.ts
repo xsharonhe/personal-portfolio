@@ -26,7 +26,7 @@ export const strings = {
     },
     projects: {
         title: 'Projects',
-        caption: "Here are some projects I'm proud of."
+        caption: "These are some of the projects I'm proud of."
     },
     contact: {
         title: "Let's connect!",
@@ -36,7 +36,8 @@ export const strings = {
         },
         linkedin: 'https://www.linkedin.com/in/sharon-he-4214541ab/',
         github: 'https://github.com/xsharonhe',
-        medium: 'https://medium.com/@xsharonhe'
+        medium: 'https://medium.com/@xsharonhe',
+        sayHello: 'Say Hello'
     },
     email: 'sharon.he1@uwaterloo.ca',
     copyright: 'Developed by Sharon He ',
