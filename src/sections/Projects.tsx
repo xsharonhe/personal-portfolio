@@ -48,6 +48,7 @@ export const Projects: React.FC<IProjectsProps> = ({
             <Heading numberText='03.'>
                 {strings.projects.title}
             </Heading>
+            <SContent>{strings.projects.caption}</SContent>
             <ProjectsWrapper>
                 {!!projectsData &&
                     projectsData.map((project: any) => {
@@ -60,7 +61,7 @@ export const Projects: React.FC<IProjectsProps> = ({
                             external,
                         } = frontmatter;
                         return (
-                            <SProject key={title}>
+                            <SProject key={title} onClick={() => navigate(`${external ? external : github}`)}>
                                 <SImageWrapper>
                                     <a href={external ? external : github}>
                                         <Img 
@@ -72,14 +73,18 @@ export const Projects: React.FC<IProjectsProps> = ({
                                 </SImageWrapper>
                                 <TextWrapper>
                                     <TechWrapper>
-                                        <Sh2>{title}</Sh2>
+                                        <SHeader>{title}</SHeader>
                                         {!!tech && <Sh5>{tech}</Sh5>}
                                     </TechWrapper>
                                     <BottomTextWrapper>
                                         <div dangerouslySetInnerHTML={{ __html: html }} />
                                         <IconWrapper> 
-                                            <SIcon icon={Github} onClick={() => navigate(github)} />
-                                            <SIcon icon={LinkExternal} onClick={() => navigate(external)} />
+                                            {!!github && (
+                                                <SIcon icon={Github} onClick={() => navigate(github)} />
+                                            )}
+                                            {!!external && (
+                                                <SIcon icon={LinkExternal} onClick={() => navigate(external)} />
+                                            )}
                                         </IconWrapper>
                                     </BottomTextWrapper>
                                 </TextWrapper>
@@ -97,7 +102,7 @@ export const Projects: React.FC<IProjectsProps> = ({
 const Wrapper = styled.div`
 `;
 const SProject = styled.div`    
-    margin: 40px;
+    margin: 0 50px;
     ${({ theme }) => `
         @media (max-width: ${theme.media.laptop}px) {
             margin: 20px;
@@ -127,7 +132,7 @@ const SImageWrapper = styled.div`
 const ProjectsWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: -40px;
+    margin-top: -50px;
     ${({ theme }) => `
         @media (max-width: 1800px) {
             grid-template-columns: 1fr 1fr;
@@ -138,6 +143,7 @@ const ProjectsWrapper = styled.div`
             }
             display: flex;
             flex-direction: column;
+            margin-top: -20px;
         }
         @media(max-width: ${theme.media.mobile}px) {
             font-size: ${theme.size.default};
@@ -150,11 +156,23 @@ const TechWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: -20px;
-    ${({ theme }) => `
-        @media (max-width: ${theme.media.mobile}px) {
-            flex-direction: column;
-        }
-    `};
+    @media (max-width: 2200px) {
+        flex-direction: column;
+    }
+    @media (max-width: 1800px) {
+        flex-direction: row;
+        align-items: center;
+    }
+    @media (max-width: 1450px) {
+        flex-direction: column;
+    }
+    @media (max-width: 1300px) {
+        flex-direction: row;
+        align-items: center;
+    }
+    @media (max-width: 550px) {
+        flex-direction: column;
+    }
 `;
 const TextWrapper = styled.div`
     max-width: 430px;
@@ -171,16 +189,33 @@ const TextWrapper = styled.div`
         }
     `};
 `;
-const Sh2 = styled.h2`
+const SContent = styled.p`
+    font-size: 1.4rem;
+    margin-top: -10px;
     ${({ theme }) => `
-        font-family: ${theme.font.header};
+        color: ${theme.colors.text};
+    `};
+`;
+const SHeader = styled.h2`
+    ${({ theme }) => `
         color: ${theme.colors.primary};
-        @media (max-width: 500px) {
+        @media (max-width: 2200px) {
             margin-bottom: -20px;
         }
-        @media (max-width: ${theme.media.mobile}px) {
-            font-size: ${theme.size.h3};
+        @media (max-width: 1800px) {
+            margin-bottom: 20px;
         }
+        @media (max-width: 1450px) {
+            margin-bottom: -20px;
+        }
+        @media (max-width: 1300px) {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 550px) {
+            font-size: ${theme.size.h3};
+            margin-bottom: -30px;
+        }
+        font-family: ${theme.font.header};
     `};
 `;
 const Sh5 = styled.h5` 
@@ -199,6 +234,19 @@ const Sh5 = styled.h5`
 const IconWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
+    margin-left: 20px;
+    @media(max-width: 2200px) {
+        margin-left: 0;
+        justify-content: center;
+    }
+    @media(max-width: 1800px) {
+        justify-content: flex-end;
+        margin-left: 20px;
+    }
+    @media(max-width: 650px) {
+        margin-left: 0;
+        justify-content: center;
+    }
 `;
 const SIcon = styled(Icon)`
     ${({ theme }) => `
@@ -213,8 +261,16 @@ const BottomTextWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     text-align: justify;
+    @media(max-width: 2200px) {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    @media(max-width: 1800px) {
+        flex-direction: row;
+        padding-bottom: 0;
+    }
     ${({ theme }) => `
-        @media(max-width: ${theme.media.mobile}px) {
+        @media(max-width: 650px) {
             flex-direction: column;
             padding-bottom: 20px;
             font-size: ${theme.size.small};
