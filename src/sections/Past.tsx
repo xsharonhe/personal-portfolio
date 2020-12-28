@@ -1,8 +1,7 @@
 
 import React from 'react';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-
-import { strings } from '../utils/strings';
 
 interface IPastProps extends React.HTMLAttributes<HTMLDivElement> {};
 
@@ -35,7 +34,7 @@ export const Past: React.FC<IPastProps> = ({
                     return (
                         <>
                             <p key={title} style={{ fontSize: '1.4rem' }}>
-                                <span>{title}</span>
+                                <SContent>{title}</SContent>
                             </p>
                             <div dangerouslySetInnerHTML={{ __html: html }} />
                         </>
@@ -45,3 +44,8 @@ export const Past: React.FC<IPastProps> = ({
         </div>
     );
 };
+const SContent = styled.p`
+    ${({ theme }) => `
+        color: ${theme.colors.text};
+    `};
+`;

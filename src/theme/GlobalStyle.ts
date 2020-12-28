@@ -52,6 +52,9 @@ export const GlobalStyle = createGlobalStyle<{theme: DefaultTheme}>`
                 padding-left: 10px;
                 color: ${theme.colors.primary};
                 list-style-type: circle;
+                @media(max-width: ${theme.media.mobile}px) {
+                    padding-left: 0;
+                }
             }
         }
         span {

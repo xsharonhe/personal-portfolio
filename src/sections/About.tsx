@@ -21,7 +21,7 @@ export const About: React.FC<IAboutProps> = ({
                 Most of my experiences come from building websites, although I have dabbled with some 
                 mobile programming. I'm fascinated by the emerging fields of <Bold>natural language
                 processing</Bold> (NLP) and <Bold>deep learning</Bold>, and am currently 
-                learning <Bold>big-data technologies</Bold> (e.g. PySpark, Hadoop).
+                learning <Bold>big-data technologies</Bold> like PySpark and Hadoop.
             </p>
             <br></br>
             <p>

@@ -8,6 +8,8 @@ export const strings = {
         'MongoDB, Express, Node.js & React',
         'Django',
         'Tensorflow',
+        'Java',
+        'AWS/GCP'
     ], 
     hero: {
         caption: "Let's connect!",
@@ -16,7 +18,7 @@ export const strings = {
     },
     about: {
         title: 'About Me',
-        third: "Here are some of the technologies I'm currently working with:",
+        third: "Here are some of the technologies and languages I'm currently working with:",
     },
     experiences: {
         title: 'Dev. Experiences',

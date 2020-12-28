@@ -5,9 +5,9 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: 'Sharon He',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    description: "Sharon He's personal website",
+    keywords: 'sharon, gatsbyjs, gatsby, typescript',
+    siteUrl: 'https://stupefied-babbage-a8ae25.netlify.app/',
     author: {
       name: 'Sharon He',
       url: 'https://twitter.com/resir014',

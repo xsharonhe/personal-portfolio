@@ -23,6 +23,7 @@ const STab = styled.button<ITabProps>`
         border: none;
         text-decoration: none;
         height: 40px;
+        width: 100%;
         text-align: center;
         background-color: ${isActive ? `${theme.colors.primaryO}` : 'transparent'};
         color: ${isActive ? `${theme.colors.primary}` : `${theme.colors.text}`}

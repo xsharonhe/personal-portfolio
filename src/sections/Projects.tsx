@@ -72,7 +72,7 @@ export const Projects: React.FC<IProjectsProps> = ({
                                 </SImageWrapper>
                                 <TextWrapper>
                                     <TechWrapper>
-                                        <Sh2><span>{title}</span></Sh2>
+                                        <Sh2>{title}</Sh2>
                                         {!!tech && <Sh5>{tech}</Sh5>}
                                     </TechWrapper>
                                     <BottomTextWrapper>
@@ -89,7 +89,7 @@ export const Projects: React.FC<IProjectsProps> = ({
                 }
             </ProjectsWrapper>
             <Past style={{ paddingTop: '50px' }} />
-            <Hackathons />
+            <Hackathons style={{ paddingTop: '30px' }} />
         </Wrapper>
     );
 };
@@ -97,8 +97,11 @@ export const Projects: React.FC<IProjectsProps> = ({
 const Wrapper = styled.div`
 `;
 const SProject = styled.div`    
-    margin: 20px;
+    margin: 40px;
     ${({ theme }) => `
+        @media (max-width: ${theme.media.laptop}px) {
+            margin: 20px;
+        }
         &:hover {
             transform: scale(1.03);
             cursor: pointer;
@@ -123,9 +126,12 @@ const SImageWrapper = styled.div`
 `;
 const ProjectsWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-top: -40px;
     ${({ theme }) => `
+        @media (max-width: 1800px) {
+            grid-template-columns: 1fr 1fr;
+        }
         @media (max-width: ${theme.media.laptop}px) {
             & > * {
                 flex-grow: 1;
@@ -168,11 +174,12 @@ const TextWrapper = styled.div`
 const Sh2 = styled.h2`
     ${({ theme }) => `
         font-family: ${theme.font.header};
+        color: ${theme.colors.primary};
         @media (max-width: 500px) {
             margin-bottom: -20px;
         }
         @media (max-width: ${theme.media.mobile}px) {
-            font-size: ${theme.size.defaultLarger};
+            font-size: ${theme.size.h3};
         }
     `};
 `;
@@ -183,8 +190,9 @@ const Sh5 = styled.h5`
     }
     ${({ theme }) => `
         font-size: ${theme.size.default};
+        color: ${theme.colors.primary};
         @media (max-width: ${theme.media.mobile}px) {
-            font-size: ${theme.size.default};
+            font-size: 0.8rem;
         }
     `};
 `;
@@ -204,10 +212,12 @@ const BottomTextWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: justify;
     ${({ theme }) => `
         @media(max-width: ${theme.media.mobile}px) {
             flex-direction: column;
             padding-bottom: 20px;
+            font-size: ${theme.size.small};
         }
     `};
 `;

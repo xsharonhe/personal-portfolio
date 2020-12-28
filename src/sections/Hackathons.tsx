@@ -1,9 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-
-import { Heading } from '../components/Texts';
-import { strings } from '../utils/strings';
-import { Past } from './Past';
+import styled from 'styled-components';
 
 interface IHackathonsProps extends React.HTMLAttributes<HTMLDivElement> {};
 
@@ -36,7 +33,7 @@ export const Hackathons: React.FC<IHackathonsProps> = ({
                     return (
                         <>
                             <p key={title} style={{ fontSize: '1.4rem' }}>
-                                <span>{title}</span>
+                                <SContent>{title}</SContent>
                             </p>
                             <div dangerouslySetInnerHTML={{ __html: html }} />
                         </>
@@ -46,3 +43,9 @@ export const Hackathons: React.FC<IHackathonsProps> = ({
         </div>
     );
 };
+
+const SContent = styled.p`
+    ${({ theme }) => `
+        color: ${theme.colors.text};
+    `};
+`;

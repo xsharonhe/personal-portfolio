@@ -96,7 +96,7 @@ export const Experiences: React.FC<IExperiencesProps> = ({
                                     </a>
                                 </Container>
                                 <Sh5>{range}</Sh5>
-                                <div dangerouslySetInnerHTML={{ __html: html }} />
+                                <SContent dangerouslySetInnerHTML={{ __html: html }} />
                             </STabContent>
                         );
                     })
@@ -112,6 +112,18 @@ const TabTitleWrapper = styled.div`
     flex-direction: row;
     padding-bottom: 20px;
     overflow-x: auto;
+    /* @media (max-width: 600px) {
+        width: calc(100% + 260px);
+    }
+    @media (max-width: 500px) {
+        width: calc(100% + 320px);
+    }
+    @media (max-width: 400px) {
+        width: calc(100% + 420px);
+    }
+    @media (max-width: 350px) {
+        width: calc(100% + 520px);
+    } */
 `;
 const Container = styled.div`
     display: flex;
@@ -165,4 +177,14 @@ const STabContent = styled(TabContent)`
         0% {opacity:0;}
         100% {opacity:1;}
     }
+`;
+const SContent = styled.div`
+    ${({ theme }) => ` 
+        @media (max-width: ${theme.media.tablet}px) {
+            padding-right: 10px;
+        }
+        @media (max-width: ${theme.media.mobile}px) {
+            padding-right: 30px;
+        }
+    `};
 `;
