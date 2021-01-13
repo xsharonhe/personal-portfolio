@@ -42,8 +42,8 @@ declare module 'styled-components' {
 
 export const baseTheme: IBaseTemplate = {
     font: {
-        header: '"itc-avant-garde-gothic-pro", sans-serif',
-        body: '"futura-pt", sans-serif',
+        header: '"garamond-premier-pro", serif',
+        body: '"pt-sans-pro", sans-serif',
     },
     size: {
         default: '1rem',
@@ -74,7 +74,7 @@ export const lightTheme = {
     ...baseTheme,
     colors: {
         primary: '#79a3b1',
-        secondary: '#cdc9c3',
+        secondary: '#433d3c',
         background: '#f4eeed',
         text: '#393e46',
         hover: '#394867',

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Linkedin } from '@styled-icons/bootstrap/Linkedin';
 import { Github } from '@styled-icons/bootstrap/Github';
-import { Medium } from '@styled-icons/fa-brands/Medium';
-import { LinkExternal } from '@styled-icons/boxicons-regular/LinkExternal';
+import { CodeSlash } from '@styled-icons/bootstrap/CodeSlash';
 import { navigate } from 'gatsby';
 
 import { Heading, Bold } from '../components/Texts';
@@ -23,8 +22,8 @@ const IconsList = [
         link: strings.contact.github
     },
     {
-        icon: Medium,
-        link: strings.contact.medium
+        icon: CodeSlash,
+        link: strings.contact.devpost
     }
 ];
 
@@ -61,7 +60,15 @@ export const Contact: React.FC<IContactProps> = ({
                     {strings.contact.resume.header}
                 </Header>
                 <Button>
-                    {strings.contact.resume.content}
+                    <a
+                        className="resume-button"
+                        href="/Resume-Sharon-He.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: 'none' }}
+                    >
+                        Take a copy.
+                  </a>
                 </Button>
             </ResumeWrapper>
         </Wrapper>

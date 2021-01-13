@@ -6,10 +6,10 @@ export const strings = {
     technologies: [
         'TypeScript',
         'MongoDB, Express, Node.js & React',
-        'Django',
+        'Django REST Framework',
         'Tensorflow',
         'Java',
-        'AWS/GCP'
+        'SQL'
     ], 
     hero: {
         caption: "Let's connect!",
@@ -36,7 +36,7 @@ export const strings = {
         },
         linkedin: 'https://www.linkedin.com/in/sharon-he-4214541ab/',
         github: 'https://github.com/xsharonhe',
-        medium: 'https://medium.com/@xsharonhe',
+        devpost: 'https://devpost.com/xsharonhe?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav',
         sayHello: 'Say Hello'
     },
     email: 'sharon.he1@uwaterloo.ca',

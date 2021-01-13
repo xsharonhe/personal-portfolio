@@ -18,22 +18,19 @@ export const About: React.FC<IAboutProps> = ({
             <p> 
                 Hello! I'm Sharon, a software engineering student at the Univeristy of Waterloo, 
                 and I'm passionate about creating meaningful <Bold> data-driven </Bold> applications. 
-                Most of my experiences come from building websites, although I have dabbled with some 
-                mobile programming. I'm fascinated by the emerging fields of <Bold>natural language
-                processing</Bold> (NLP) and <Bold>deep learning</Bold>, and am currently 
-                learning <Bold>big-data technologies</Bold> like PySpark and Hadoop.
+                Most of my experiences come from building websites, although I have dabbled in some
+                mobile programming. I'm currently learning about <Bold>natural language
+                processing</Bold> (NLP) and <Bold>cloud computing</Bold> (e.g. AWS, GCP).
             </p>
-            <br></br>
             <p>
                 I fell in love with building software because I believe in technology's ability to 
                 develop creative solutions for the complex issues our society faces. I previously 
                 volunteered with the <a href='https://scholar.harvard.edu/cvt/home'><Bold isLink={true}>Coronavirus Visualization Team</Bold></a>,
                 a student organization founded at Harvard to fight the COVID-19 infodemic, to analyze the pandemic's
                 impact on the aviation industry. Currently, I'm volunteering at <a href='https://www.unitic.net'>
-                <Bold isLink={true}>Unitic</Bold></a>, building a machine-learning based
-                diagnostic tool for Tourette's Syndrome, and y as a web developer.
+                <a href='https://www.linkedin.com/company/uni-tic/?originalSubdomain=ca'>Unitic</a></a>, building a machine-learning based
+                diagnostic tool for Tourette's Syndrome, and <a href='https://pumprofessionals.org'>PuMP</a> as a web developer.
             </p>
-            <br></br>
             <p>
                 {strings.about.third}
             </p>

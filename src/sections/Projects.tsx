@@ -19,7 +19,8 @@ export const Projects: React.FC<IProjectsProps> = ({
     const data = useStaticQuery(graphql`
         query {
             hackathons: allMarkdownRemark (
-                filter: { fileAbsolutePath: { regex: "/projects/" } }
+                filter: { fileAbsolutePath: { regex: "/projects/" } },
+                sort: { fields: [frontmatter___order], order: ASC }
             ) {
                 edges {
                     node {
@@ -49,6 +50,8 @@ export const Projects: React.FC<IProjectsProps> = ({
                 {strings.projects.title}
             </Heading>
             <SContent>{strings.projects.caption}</SContent>
+            <br />
+            <br />
             <ProjectsWrapper>
                 {!!projectsData &&
                     projectsData.map((project: any) => {
@@ -60,7 +63,19 @@ export const Projects: React.FC<IProjectsProps> = ({
                             github,
                             external,
                         } = frontmatter;
-                        return (
+                          return (
+                            // <Project key={title} onClick={() => navigate(github)}>
+                            //     <ProjectImage>
+                            //         <Img 
+                            //             fluid={featuredImage.childImageSharp.fluid}
+                            //             alt={title}
+                            //             style={{ borderRadius: '8px', margin: '0 10px' }}  
+                            //         />
+                            //     </ProjectImage>
+                            //     <ProjectText>
+                            //         <h2>{title}</h2>
+                            //     </ProjectText>
+                            // </Project>
                             <SProject key={title} onClick={() => navigate(`${external ? external : github}`)}>
                                 <SImageWrapper>
                                     <a href={external ? external : github}>
@@ -74,18 +89,18 @@ export const Projects: React.FC<IProjectsProps> = ({
                                 <TextWrapper>
                                     <TechWrapper>
                                         <SHeader>{title}</SHeader>
-                                        {!!tech && <Sh5>{tech}</Sh5>}
+                                        {/* {!!tech && <Sh5>{tech}</Sh5>} */}
                                     </TechWrapper>
                                     <BottomTextWrapper>
                                         <div dangerouslySetInnerHTML={{ __html: html }} />
-                                        <IconWrapper> 
+                                        {/* <IconWrapper> 
                                             {!!github && (
                                                 <SIcon icon={Github} onClick={() => navigate(github)} />
                                             )}
                                             {!!external && (
                                                 <SIcon icon={LinkExternal} onClick={() => navigate(external)} />
                                             )}
-                                        </IconWrapper>
+                                        </IconWrapper> */}
                                     </BottomTextWrapper>
                                 </TextWrapper>
                             </SProject>
@@ -94,11 +109,27 @@ export const Projects: React.FC<IProjectsProps> = ({
                 }
             </ProjectsWrapper>
             <Past style={{ paddingTop: '50px' }} />
-            <Hackathons style={{ paddingTop: '30px' }} />
+            {/* <Hackathons style={{ paddingTop: '30px' }} /> */}
         </Wrapper>
     );
 };
 
+const Project = styled.div`
+    margin-bottom: 50px;
+`;
+const ProjectText = styled.div`
+    text-align: center;
+    ${({ theme }) => `
+        background-color: ${theme.colors.secondary};
+    `};
+    max-width: 530px;
+    margin: -40px 0 0 15px;
+    z-index: 999;
+`;
+const ProjectImage = styled.div`
+    z-index: -3;
+    position: relative;
+`;
 const Wrapper = styled.div`
 `;
 const SProject = styled.div`    
@@ -119,7 +150,7 @@ const SImageWrapper = styled.div`
     opacity: 0.9;
     z-index: -3;
     position: relative;
-    top: 100px;
+    top: 50px;
     left: 0;
     ${({ theme }) => `
         border-radius: ${theme.radius.border};
@@ -131,12 +162,9 @@ const SImageWrapper = styled.div`
 `;
 const ProjectsWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin-top: -50px;
     ${({ theme }) => `
-        @media (max-width: 1800px) {
-            grid-template-columns: 1fr 1fr;
-        }
         @media (max-width: ${theme.media.laptop}px) {
             & > * {
                 flex-grow: 1;
@@ -154,7 +182,8 @@ const TechWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    margin-bottom: -20px;
+    /* justify-content: space-between;
     margin-bottom: -20px;
     @media (max-width: 2200px) {
         flex-direction: column;
@@ -172,14 +201,14 @@ const TechWrapper = styled.div`
     }
     @media (max-width: 550px) {
         flex-direction: column;
-    }
+    } */
 `;
 const TextWrapper = styled.div`
     max-width: 430px;
     padding: 10px 30px;
     ${({ theme }) => `
         background-color: ${theme.colors.secondary};
-        color: ${theme.colors.text};
+        color: ${theme.colors.background};
         border-radius: ${theme.radius.default};
         @media (max-width: ${theme.media.laptop}px) {
             margin: auto;
@@ -194,10 +223,17 @@ const SContent = styled.p`
     margin-top: -10px;
     ${({ theme }) => `
         color: ${theme.colors.text};
+        font-size: ${theme.size.defaultLarger};
     `};
 `;
 const SHeader = styled.h2`
+    text-align: center;
+    font-weight: bold;
     ${({ theme }) => `
+        color: ${theme.colors.primary};
+        font-family: ${theme.font.header};
+    `};
+    /* ${({ theme }) => `
         color: ${theme.colors.primary};
         @media (max-width: 2200px) {
             margin-bottom: -20px;
@@ -216,7 +252,7 @@ const SHeader = styled.h2`
             margin-bottom: -30px;
         }
         font-family: ${theme.font.header};
-    `};
+    `}; */
 `;
 const Sh5 = styled.h5` 
     @media (max-width: 500px) {
@@ -270,6 +306,7 @@ const BottomTextWrapper = styled.div`
         padding-bottom: 0;
     }
     ${({ theme }) => `
+        font-size: ${theme.size.default};
         @media(max-width: 650px) {
             flex-direction: column;
             padding-bottom: 20px;
