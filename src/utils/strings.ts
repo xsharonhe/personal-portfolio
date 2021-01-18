@@ -6,8 +6,8 @@ export const strings = {
     technologies: [
         'TypeScript',
         'MongoDB, Express, Node.js & React',
-        'Django REST Framework',
-        'Tensorflow',
+        'Django',
+        'Sckit-learn',
         'Java',
         'SQL'
     ], 

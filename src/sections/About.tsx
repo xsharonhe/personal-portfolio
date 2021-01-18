@@ -27,9 +27,8 @@ export const About: React.FC<IAboutProps> = ({
                 develop creative solutions for the complex issues our society faces. I previously 
                 volunteered with the <a href='https://scholar.harvard.edu/cvt/home'><Bold isLink={true}>Coronavirus Visualization Team</Bold></a>,
                 a student organization founded at Harvard to fight the COVID-19 infodemic, to analyze the pandemic's
-                impact on the aviation industry. Currently, I'm volunteering at <a href='https://www.unitic.net'>
-                <a href='https://www.linkedin.com/company/uni-tic/?originalSubdomain=ca'>Unitic</a></a>, building a machine-learning based
-                diagnostic tool for Tourette's Syndrome, and <a href='https://pumprofessionals.org'>PuMP</a> as a web developer.
+                impact on the aviation industry. Currently, I'm volunteering at <a href='https://www.linkedin.com/company/uni-tic/?originalSubdomain=ca'><Bold isLink={true}>Unitic</Bold></a>, building a machine-learning based
+                diagnostic tool for Tourette's Syndrome, and <a href='https://pumprofessionals.org'><Bold isLink={true}>PuMP</Bold></a> as a web developer.
             </p>
             <p>
                 {strings.about.third}

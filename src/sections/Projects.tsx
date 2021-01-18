@@ -89,7 +89,7 @@ export const Projects: React.FC<IProjectsProps> = ({
                                 <TextWrapper>
                                     <TechWrapper>
                                         <SHeader>{title}</SHeader>
-                                        {/* {!!tech && <Sh5>{tech}</Sh5>} */}
+                                        {!!tech && <Sh5>{tech}</Sh5>}
                                     </TechWrapper>
                                     <BottomTextWrapper>
                                         <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -183,16 +183,8 @@ const TechWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     margin-bottom: -20px;
-    /* justify-content: space-between;
-    margin-bottom: -20px;
-    @media (max-width: 2200px) {
-        flex-direction: column;
-    }
-    @media (max-width: 1800px) {
-        flex-direction: row;
-        align-items: center;
-    }
-    @media (max-width: 1450px) {
+    justify-content: space-between;
+    @media (max-width: 1750px) {
         flex-direction: column;
     }
     @media (max-width: 1300px) {
@@ -201,7 +193,29 @@ const TechWrapper = styled.div`
     }
     @media (max-width: 550px) {
         flex-direction: column;
-    } */
+    }
+`;
+const SHeader = styled.h2`
+    text-align: center;
+    font-weight: bold;
+    ${({ theme }) => `
+        color: ${theme.colors.primary};
+        font-family: ${theme.font.header};
+    `};
+    ${({ theme }) => `
+        color: ${theme.colors.primary};
+        @media (max-width: 1750px) {
+            margin-bottom: -20px;
+        }
+        @media (max-width: 1300px) {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 550px) {
+            font-size: ${theme.size.h3};
+            margin-bottom: -30px;
+        }
+        font-family: ${theme.font.header};
+    `};
 `;
 const TextWrapper = styled.div`
     max-width: 430px;
@@ -225,34 +239,6 @@ const SContent = styled.p`
         color: ${theme.colors.text};
         font-size: ${theme.size.defaultLarger};
     `};
-`;
-const SHeader = styled.h2`
-    text-align: center;
-    font-weight: bold;
-    ${({ theme }) => `
-        color: ${theme.colors.primary};
-        font-family: ${theme.font.header};
-    `};
-    /* ${({ theme }) => `
-        color: ${theme.colors.primary};
-        @media (max-width: 2200px) {
-            margin-bottom: -20px;
-        }
-        @media (max-width: 1800px) {
-            margin-bottom: 20px;
-        }
-        @media (max-width: 1450px) {
-            margin-bottom: -20px;
-        }
-        @media (max-width: 1300px) {
-            margin-bottom: 20px;
-        }
-        @media (max-width: 550px) {
-            font-size: ${theme.size.h3};
-            margin-bottom: -30px;
-        }
-        font-family: ${theme.font.header};
-    `}; */
 `;
 const Sh5 = styled.h5` 
     @media (max-width: 500px) {
@@ -311,6 +297,9 @@ const BottomTextWrapper = styled.div`
             flex-direction: column;
             padding-bottom: 20px;
             font-size: ${theme.size.small};
+        }
+        @media(max-width: 400px) {
+            text-align: left;
         }
     `};
 `;

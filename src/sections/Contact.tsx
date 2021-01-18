@@ -62,7 +62,7 @@ export const Contact: React.FC<IContactProps> = ({
                 <Button>
                     <a
                         className="resume-button"
-                        href="/Resume-Sharon-He.pdf"
+                        href="/SharonHe_Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{ textDecoration: 'none' }}

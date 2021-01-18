@@ -10,6 +10,6 @@ featuredImage2: './images/2XNMCreations.png'
 imageUrl: 'https://www.xnmcreations.com/'
 imageUrl2: 'https://www.xnmcreations.com/pages/shop-all'
 ---
-- Created profit and loss reports, inventory management systems, and keyword adveritising analysis, decreasing ACoS by 10%, using <span>Excel and Python </span>
+- Created profit and loss reports, inventory management systems, and keyword adveritising analysis, decreasing advertising costs by 10%, using <span>Excel and Python </span>
 - Developed and maintained company website using <span>JavaScript, jQuery</span>, and <span>Liquid</span>, serving over 20,000 customers annually
-- Consulted on the development of their financial tools API using <span>PostgreSQL</span> and <span>pandas</span>
+- Built their financial tools API using <span>PostgreSQL</span> and <span>pandas</span>
